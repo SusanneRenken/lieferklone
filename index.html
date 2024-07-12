@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SchlemmerShuttle</title>
+    <link rel="shortcut icon" href="./img/1-favicon.png" type="image/x-icon" />
+
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./fonts.css" />
+
+    <script src="./script.js"></script>
+    <script src="./html.js"></script>
+  </head>
+
+  <body onload="render(), renderBasket()">
+    <!-- HEADER -->
+    <header>
+      <div>
+        <img src="./img/1-Logo.png" alt="Logo" class="logo-img" />
+        <p class="schlemmer-shuttle">SchlemmerShuttle</p>
+      </div>
+      <h4>Speisekarte</h4>
+      <div>
+        <img
+          src="./img/1-flag.png"
+          alt="Deutschland Flagge"
+          class="header-img"
+        />
+        <img src="./img/1-burger-bar.png" alt="Hauptmenü" class="header-img" />
+      </div>
+    </header>
+
+    <!-- MAIN -->
+
+    <section class="main" id="main">
+      <!-- CONTENT -->
+      <div class="leftside" id="leftside">
+        <img src="./img/2- Titel.jpg" alt="Pizza" class="title-img" />
+
+        <div class="restaurant-data">
+          <img
+            src="./img/1-food.png"
+            alt="Restaurant Logo"
+            class="restaurant-logo"
+          />
+          <div class="dis-flex">
+            <h1>Pizza Rimini</h1>
+            <div>
+              <img
+                src="./img/1-information.png"
+                alt="Informationen"
+                class="round-img"
+              />
+              <img src="./img/1-heart.png" alt="Like" class="round-img" />
+            </div>
+          </div>
+          <div class="rating">
+            <img src="./img/1-rating.png" alt="Bewertung" />
+            <div><b>4.8</b> (200+)</div>
+          </div>
+        </div>
+
+        <div class="slider">
+          <img
+            src="./img/1-back.png"
+            alt="Slide left"
+            class="slider-img"
+            onclick="slideLeft()"
+          />
+          <div class="scrollmenu" id="scrollmenu">
+            <a href="#beliebt">Beliebt</a>
+            <a href="#vorspeise">Vorspeise</a>
+            <a href="#salat">Salat</a>
+            <a href="#hauptspeise">Pizza</a>
+            <a href="#nudeln">Pasta</a>
+            <a href="#nachtisch">Dessert</a>
+          </div>
+          <img
+            src="./img/1-next.png"
+            alt="Slide left"
+            class="slider-img"
+            onclick="slideRight()"
+          />
+        </div>
+
+        <div class="content">
+          <div class="categorie" id="beliebt">
+            <h2>Beliebt</h2>
+            <p>Unsere 3 beliebtesten Gerichte des letzten Monats.</p>
+          </div>
+
+          <div id="popular"></div>
+
+          <div class="categorie" id="vorspeise">
+            <img src="./img/2- Vorspeise.jpg" alt="Bild einer Vorspeise" />
+            <h2>Vorspeisen</h2>
+          </div>
+          <div id="starter"></div>
+
+          <div class="categorie" id="salat">
+            <img src="./img/2- Salat.jpg" alt="Bild von einem Salat" />
+            <h2>Salat</h2>
+            <p>
+              Alle Salate werden mit Eisbergsalat, Gurken, frischen Tomaten und
+              einem Dressing nach Wahl zubereitet.
+            </p>
+          </div>
+          <div id="salad"></div>
+
+          <div class="categorie" id="hauptspeise">
+            <img src="./img/2- Pizza.jpg" alt="Bild einer Pizza" />
+            <h2>Pizza</h2>
+            <p>
+              Alle Pizzen werden mit Tomatensauce und Käse zubereitet. Auf
+              Wunsch werden die Ø 32er Pizzen als Calzone zubereitet.
+            </p>
+          </div>
+          <div id="pizza"></div>
+
+          <div class="categorie" id="nudeln">
+            <img src="./img/2- Pasta.jpg" alt="Bild eines Pastagerichtes" />
+            <h2>Pasta</h2>
+            <p>
+              Alle Nudelgerichte und mit einer Nudelsorte nach Wahl zubereitet.
+            </p>
+          </div>
+          <div id="pasta"></div>
+
+          <div class="categorie" id="nachtisch">
+            <img src="./img/2- Dessert.jpg" alt="Bild eines Desserts" />
+            <h2>Dessert</h2>
+          </div>
+          <div id="dessert"></div>
+        </div>
+      </div>
+
+      <!-- WARENKORB -->
+      <aside class="" id="aside">
+        <img src="./img/1-close.png" alt="Schließen" class="close-btn d-none" id="close-btn" onclick="editClasslistMobileBasket('remove', 'add')">
+        <h1>Warenkorb</h1>
+
+        <div class="delivery">
+          <div id="purvey" class="delivery-btn activ" onclick="deliver(purvey)">
+            <img src="./img/1-fast-delivery.png" alt="Lieferung" />
+            <span>Lieferung<br />ab 16:15</span>
+          </div>
+          <div
+            id="collection"
+            class="delivery-btn"
+            onclick="deliver(collection)"
+          >
+            <img src="./img/1-collect.png" alt="Abholung" />
+            <span>Abholung<br />ab 15:45</span>
+          </div>
+        </div>
+
+        <div class="conditions" id="conditions-purvey">
+          <img src="./img/1-shopping-basket.png" alt="Einkaufskorb" />
+          Min. 14,90 €
+          <p>|</p>
+          <img src="./img/1-fast-delivery.png" alt="Lieferung" />
+          3,00 €
+        </div>
+
+        <div class="conditions d-none" id="conditions-collection">
+          <img src="./img/1-map_marker.png" alt="Map Marker" />
+          Schnitzelweg 77, 65432 Hungerhausen
+        </div>
+
+        <div class="basket d-none" id="basket">
+          <div id="selected-dishes"></div>
+        </div>
+        <div class="cost" id="cost"></div>
+
+        <div class="basket-empty" id="basket-empty">
+          <img src="./img/1-shopping-basket.png" alt="Einkaufskorb" />
+          <h1>Fülle deinen Warenkorb</h1>
+          <p>
+            Füge einige leckere Gerichte aus der Speisekarte hinzu und bestelle
+            dein Essen.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- BASKET Btn MOBILE -->
+    <div class="open-basket-btn" id="open-basket-btn"></div>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+      <div>
+        <p>Ein Restaurant empfehlen</p>
+        <p>Ein Restaurant anmelden</p>
+        <p>Jobs</p>
+        <p>AGB</p>
+        <p>Datenschutzerklärung</p>
+        <p>Impressum</p>
+        <p>Verwendung von Cookies</p>
+        <p>Bug Bounty</p>
+        <p>Ethik-Hotline</p>
+      </div>
+      <div>2024 SchlemmerShuttle</div>
+    </footer>
+  </body>
+</html>
